@@ -18,6 +18,9 @@ services:
       DB_NAME: postgres
       DB_USER: postgres
       DB_PASSWORD: postgres
+    depends_on:
+      db:
+        condition: service_healthy
 
   db:
     image: postgres:16.0
@@ -31,3 +34,9 @@ services:
     volumes:
       - ./database/table.sql:/docker-entrypoint-initdb.d/1.sql
       - ./database/data.sql:/docker-entrypoint-initdb.d/2.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready", "-d", "db_prod"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
