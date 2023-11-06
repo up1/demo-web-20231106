@@ -6,6 +6,9 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8888:80"
+    depends_on:
+      backend:
+        condition: service_healthy
   
   backend:
     build:

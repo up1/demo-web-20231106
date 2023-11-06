@@ -54,7 +54,7 @@ Delete all services
 $docker compose down
 ```
 
-## Step 3 :: Build and create container
+## Step 3 :: Build and create container of backend and database
 * Start database
   * Database instance
   * Tables and Constraints
@@ -75,3 +75,39 @@ Delete all services
 ```
 $docker compose down
 ```
+
+## Step 4 :: Build and create container of frontend
+* ReactJS
+* NGINX
+
+```
+$docker compose build frontend
+$docker compose up -d frontend
+$docker compose ps
+$docker compose logs --follow
+```
+
+Access in web browser with url
+* http://localhost:8888
+* http://localhost:8888/api/
+
+Delete all services
+```
+$docker compose down
+```
+
+## Step 5 :: Start all services
+```
+$docker compose up -d frontend
+$docker compose ps
+NAME                     IMAGE                  COMMAND                  SERVICE    CREATED          STATUS                    PORTS
+postgres                 postgres:16.0          "docker-entrypoint.s…"   db         14 seconds ago   Up 13 seconds (healthy)   0.0.0.0:5432->5432/tcp
+workshop-02-backend-1    workshop-02-backend    "docker-entrypoint.s…"   backend    14 seconds ago   Up 7 seconds (healthy)    0.0.0.0:3000->3000/tcp
+workshop-02-frontend-1   workshop-02-frontend   "/docker-entrypoint.…"   frontend   14 seconds ago   Up 2 seconds              0.0.0.0:8888->80/tcp
+
+$docker compose logs --follow
+```
+
+Test again !!
+
+
