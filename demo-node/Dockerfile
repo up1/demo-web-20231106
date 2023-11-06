@@ -4,8 +4,9 @@ COPY package*.json .
 RUN npm i  
 COPY . .
 EXPOSE 3000
-RUN npm install pm2 -g
-CMD [ "pm2-runtime", "server.js" ]
+# RUN npm install pm2 -g
+# CMD [ "pm2-runtime", "server.js" ]
+CMD [ "npm", "start" ]
 
 #docker image build -t demo-node:1.0 .
 #docker container run -d -p 3000:3000 demo-node:1.0
