@@ -10,4 +10,4 @@ COPY --from=build01 /app/out .
 ENTRYPOINT ["dotnet", "hello-api.dll"]
 
 #docker image build -t api:1.0 .
-#docker container run -p 5001:5000 api:1.0
+#docker container run -p 5001:8080 api:1.0
