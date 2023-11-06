@@ -1,10 +1,10 @@
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build01
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build01
 WORKDIR /app
 COPY . .
 RUN dotnet restore
 RUN dotnet publish -c Release -o out
 
-FROM mcr.microsoft.com/dotnet/aspnet:8.0
+FROM mcr.microsoft.com/dotnet/aspnet:7.0
 WORKDIR /target
 COPY --from=build01 /app/out .
 ENTRYPOINT ["dotnet", "hello-api.dll"]
