@@ -109,5 +109,6 @@ $docker compose logs --follow
 ```
 
 Test again !!
+* http://localhost:8888/
 
 
