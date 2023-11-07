@@ -3,7 +3,7 @@
 
 ## Create container
 ```
-docker container run --name db \
+docker container run -d --name db \
  -e POSTGRES_DB=demo \
  -e POSTGRES_USER=myuser \
  -e POSTGRES_PASSWORD=pass \
