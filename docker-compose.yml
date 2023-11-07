@@ -5,6 +5,7 @@ services:
   
   nodejs:
     build: ./demo-node
+    image: somkiat/demo-node:1.0
   
   reactjs:
     build: ./demo-web

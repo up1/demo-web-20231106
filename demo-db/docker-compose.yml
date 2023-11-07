@@ -2,7 +2,7 @@ version: "3"
 volumes:
   xyz:
     driver: local
-    
+
 services:
   db:
     image: postgres:16.0
@@ -12,7 +12,7 @@ services:
       - POSTGRES_USER=myuser
       - POSTGRES_PASSWORD=pass
     volumes:
-      - xyz:/var/lib/postgresql/data
+      - ./xyz:/var/lib/postgresql/data
 
   db2:
     image: mcr.microsoft.com/azure-sql-edge
